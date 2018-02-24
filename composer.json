@@ -1,0 +1,11 @@
+{
+    "name": "mcc/laravelcms",
+    "description": "cms for larvel website",
+    "authors": [
+        {
+            "name": "indermcc",
+            "email": "inder@multichannelcreative.co.uk"
+        }
+    ],
+    "require": {}
+}
