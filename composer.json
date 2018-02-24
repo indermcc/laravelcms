@@ -7,5 +7,11 @@
             "email": "inder@multichannelcreative.co.uk"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Mcc\\Laravelcms\\": "src/"
+        }
+    },
+    "autoload-dev": {}
 }

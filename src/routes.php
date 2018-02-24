@@ -7,4 +7,4 @@
 //
 // Route::get('testing1','Mcc\Cms\Controllers\CmsController@index');
 
-Route::get('/{slug}','Mcc\Cms\Controllers\CmsController@test');
+Route::get('/{slug}','Mcc\Laravelcms\Controllers\CmsController@test');
