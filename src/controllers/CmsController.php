@@ -1,7 +1,7 @@
 <?php
 
 namespace Mcc\Laravelcms\Controllers;
-// exit;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
