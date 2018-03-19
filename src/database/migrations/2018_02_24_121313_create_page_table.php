@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBlockTable extends Migration
+class CreatePageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,7 @@ class CreateBlockTable extends Migration
      */
     public function up()
     {
-
-        Schema::create('blocks', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
 
           $table->increments('id');
 
@@ -22,17 +21,23 @@ class CreateBlockTable extends Migration
 
           $table->text('description')->nullable();
 
-          $table->string('file');
+          $table->string('meta_title')->nullable();
+
+          $table->text('meta_description')->nullable();
+
+          $table->string('banner')->nullable();
 
           $table->unsignedInteger('layout_id');
 
-          $table->tinyInteger('order');
+          $table->boolean('active')->default(true);
 
           $table->timestamps();
 
+          $table->softDeletes();
+
           $table->foreign('layout_id')
           ->references('id')
-          ->on('block_layouts')
+          ->on('page_layouts')
           ->onDelete('cascade')
           ;
 
@@ -46,6 +51,6 @@ class CreateBlockTable extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('blocks');
+      Schema::dropIfExists('pages');
     }
 }

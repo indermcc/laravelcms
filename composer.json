@@ -7,8 +7,14 @@
             "email": "inder@multichannelcreative.co.uk"
         }
     ],
-    "require": {},
+    "require": {
+      "php": ">=7.1.3",
+      "igaster/laravel-theme": "^2.0"
+    },
     "autoload": {
+        "classmap": [
+          "database/seeds"
+        ],
         "psr-4": {
             "Mcc\\Laravelcms\\": "src/"
         }

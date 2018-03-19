@@ -47,7 +47,9 @@ class CreateLayoutTable extends Migration
      */
     public function down()
     {
+      Schema::disableForeignKeyConstraints();
       Schema::dropIfExists('page_layouts');
       Schema::dropIfExists('block_layouts');
+      Schema::enableForeignKeyConstraints();
     }
 }

@@ -4,7 +4,9 @@ namespace Mcc\Laravelcms\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BlockImage extends Model
+class WidgetText extends Model
 {
+  protected $guarded = [];
+
   public $timestamps = true;
 }
