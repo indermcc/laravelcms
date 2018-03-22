@@ -25,7 +25,7 @@
 
 
         <!--header-section-->
-        @include('header')
+        @include('laravelcms::admin.layouts.header')
 
 
         <!--dashboard-section-->
@@ -42,7 +42,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 dashboard-div">
 
                             <!--first-part-->
-                            @include('left-sidebar')
+                            @include('laravelcms::admin.layouts.left-sidebar')
 
                             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-10 sec-part">
 
@@ -58,7 +58,7 @@
             </div>
         </section>
 
-        @include('footer')
+        @include('laravelcms::admin.layouts.footer')
         <script type="text/javascript">
           var APP_URL = {!! json_encode(url('/')) !!};
           function createUrl(url) {

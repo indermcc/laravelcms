@@ -25,6 +25,7 @@ class WidgetRequest extends FormRequest
     {
       return [
         'widget.name' => 'required|max:255',
+        'widget.layout' => 'required',        
         // 'widget.tests' => 'required|max:255',
       ];
     }

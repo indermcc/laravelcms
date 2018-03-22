@@ -9,6 +9,9 @@ use Mcc\Laravelcms\Models\WidgetAttribute;
 use Mcc\Laravelcms\Requests\WidgetRequest;
 use Validator;
 
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+
 class WidgetController extends Controller
 {
 
@@ -48,6 +51,7 @@ class WidgetController extends Controller
 
   public function store(Widget $widget)
   {
+    // dd(request()->all());
     $response['success'] = true;
     $validator = Validator::make(request()->all(),(new WidgetRequest)->rules());
     if($validator->fails()) {
@@ -63,6 +67,7 @@ class WidgetController extends Controller
     else {
       // dd(request()->all());
       $widget->fill(request('widget'));
+
       if($widget->save())
         $response['messages'] = "Widget saved successfully";
 
@@ -86,6 +91,9 @@ class WidgetController extends Controller
           $widgetAttribute->save();
         }
       }
+
+      // creating widget layout
+
     }
 
     return response()->json($response);

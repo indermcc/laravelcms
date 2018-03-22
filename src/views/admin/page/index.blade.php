@@ -1,4 +1,4 @@
-@extends('main')
+@extends('laravelcms::admin.layouts.main')
 
 @section('breadcrumb')
   @include('laravelcms::admin.breadcrumbs',[

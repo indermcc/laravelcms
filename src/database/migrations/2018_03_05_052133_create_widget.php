@@ -22,6 +22,8 @@ class CreateWidget extends Migration
 
         // $table->string('key')->unique();
 
+        $table->string('layout');
+
         $table->text('description')->nullable();
 
         $table->boolean('active')->default(true);

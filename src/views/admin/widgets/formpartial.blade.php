@@ -11,6 +11,21 @@
   </div>
 
   <div class="form-group">
+    {{ Form::label('layout',null,['class'=>'control-label'])}}
+    {{ Form::textarea(
+      'layout',
+      $model->layout,
+      ['class'=>'form-control',
+      'ng-model' => 'service.widget.layout',
+      'required'=>'required',
+      'ui-ace'   => '{
+        mode:"php"
+      }'
+      ])}}
+  </div>
+
+
+  <div class="form-group">
     {{ Form::label('active',null,['class'=>'control-label'])}}
     <div class="">
       Yes

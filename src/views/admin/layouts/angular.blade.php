@@ -84,6 +84,10 @@
         <script src="<?= url('/') ?>/js/angular/angular-animate.min.js" type="text/javascript"></script>
         <script src="<?= url('/') ?>/js/angular/paging.min.js" type="text/javascript"></script>
 
+        <script src="<?= url('/') ?>/js/ace.js" type="text/javascript"></script>
+        <script src="<?= url('/') ?>/js/angular/ui-ace.js" type="text/javascript"></script>
+        <script src="<?= url('/') ?>/js/require.js" type="text/javascript"></script>
+
          @yield('scripts')
     </body>
 </html>
