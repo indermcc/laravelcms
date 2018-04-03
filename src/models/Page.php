@@ -10,8 +10,6 @@ class Page extends Model
 
     public $timestamps = true;
 
-    public static $positions = ['left'=>[],'right'=>[],'center'=>[]];
-
     public function getUniqueSlug() {
       $slug = $this->getAttribute('uri') ? $this->getAttribute('uri') : $this->getAttribute('title');
       $slug = preg_replace('/[^A-Za-z0-9\-]/','_',$slug);
@@ -32,5 +30,9 @@ class Page extends Model
 
     public function blocks() {
       return $this->hasMany(Block::class);
+    }
+
+    public function rows() {
+      return $this->hasMany(RowPage::class);
     }
 }

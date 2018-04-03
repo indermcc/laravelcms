@@ -5,9 +5,27 @@
     {{ Form::text('name',$model->name,['class'=>'form-control','required'=>'required','ng-model' => 'service.widget.name'])}}
   </div>
 
+
   <div class="form-group">
     {{ Form::label('description',null,['class'=>'control-label'])}}
-    {{ Form::textarea('description',$model->description,['class'=>'form-control','ng-model' => 'service.widget.description'])}}
+    {{ Form::textarea('description',
+    $model->description,
+    [
+    'class'=>'form-control',
+    'ng-model'   => 'service.widget.description',
+    'ui-tinymce' => "tinymceOptions",
+    'required'   => 'required'
+    ])}}
+  </div>
+
+  <div class="form-group">
+    {{ Form::label('Category',null,['class'=>'control-label'])}}
+    <select class="form-control" name="layout_id" ng-model="service.widget.category_id" required="required">
+      <option value="">Select</option>
+      <option ng-repeat="category in categoryService.categories" value="<% category.id %>">
+        <% category.name %>
+      </option>
+    </select>
   </div>
 
   <div class="form-group">
@@ -18,9 +36,7 @@
       ['class'=>'form-control',
       'ng-model' => 'service.widget.layout',
       'required'=>'required',
-      'ui-ace'   => '{
-        mode:"php"
-      }'
+      'ui-ace'
       ])}}
   </div>
 
@@ -69,6 +85,16 @@
           {{ Form::radio('active',1,false,['ng-model'=>'attribute.haveSingleValue']) }}
           No
           {{ Form::radio('active',0,false,['ng-model'=>'attribute.haveSingleValue']) }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        {{ Form::label('required',null,['class'=>'control-label'])}}
+        <div class="">
+          Yes
+          {{ Form::radio('Yes',1,false,['ng-model'=>'attribute.required']) }}
+          No
+          {{ Form::radio('No',0,false,['ng-model'=>'attribute.required']) }}
         </div>
       </div>
     </div>

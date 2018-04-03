@@ -38,5 +38,38 @@ class PageDatabaseSeeder extends Seeder
         'name' => 'three column',
         'file' => 'laravelcms::cms.pages.layouts.three-column'
       ]);
+
+
+      DB::table('row_layouts')->insert([
+        'title' => 'One Column',
+        'layout' => '',
+        'rows'   => 1,
+        'col1_class' => 'col-lg-12'
+      ]);
+      DB::table('row_layouts')->insert([
+        'title' => 'Two Column',
+        'layout' => '',
+        'rows'   => 2,
+        'col1_class' => 'col-lg-6',
+        'col2_class' => 'col-lg-6'
+      ]);
+      DB::table('row_layouts')->insert([
+        'title' => 'Three Column',
+        'layout' => '',
+        'rows'   => 3,
+        'col1_class' => 'col-lg-4',
+        'col2_class' => 'col-lg-4',
+        'col3_class' => 'col-lg-4'
+      ]);
+
+      DB::table('widget_categories')->insert([
+        'name' => 'Content',
+      ]);
+      DB::table('widget_categories')->insert([
+        'name' => 'Social',
+      ]);
+      DB::table('widget_categories')->insert([
+        'name' => 'Structure',
+      ]);
     }
 }

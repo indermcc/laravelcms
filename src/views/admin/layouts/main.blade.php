@@ -60,10 +60,14 @@
 
         @include('laravelcms::admin.layouts.footer')
         <script type="text/javascript">
-          var APP_URL = {!! json_encode(url('/')) !!};
+          var APP_URL = {!! json_encode(url('/')) !!},
+                ANGULAR_START_TAG = '<%',
+                  ANGULAR_END_TAG = '%>'
+          ;
           function createUrl(url) {
             return APP_URL+url;
           }
+
         </script>
         <script src="<?= url('/') ?>/js/jquery-3.1.1.min.js" type="text/javascript"></script>
 

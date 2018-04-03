@@ -33,9 +33,6 @@
 @endsection
 
 @section('scripts')
-  <script type="text/javascript">
-    var WIDGET_ID = <?= isset($widget) ? $widget : 0 ?>;
-  </script>
   <script src="<?= url('/') ?>/js/modules/admin/widgets/app.js" type="text/javascript"></script>
   <script src="<?= url('/') ?>/js/modules/admin/widgets/controllers.js" type="text/javascript"></script>
   <script src="<?= url('/') ?>/js/modules/admin/widgets/service.js" type="text/javascript"></script>

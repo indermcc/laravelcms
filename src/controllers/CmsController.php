@@ -9,7 +9,18 @@ use Mcc\Laravelcms\Models\Block;
 
 class CmsController extends Controller
 {
+
     public function index($slug) {
+      $page = Page::where('uri',$slug)->with('layout','rows')->first();
+      // dd($page);
+      if(!$page)
+        die('No page found with this name');
+
+      // dd($page);
+      return view($page->layout->file,compact('page'));
+    }
+
+    public function index_old($slug) {
       // dd($slug);
       // dd(Page::class);
       $page = Page::where('uri',$slug)->with('blocks','layout','blocks.childBlocks','blocks.layout')->first();

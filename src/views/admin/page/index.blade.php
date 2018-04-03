@@ -1,63 +1,44 @@
-@extends('laravelcms::admin.layouts.main')
+@extends('laravelcms::admin.layouts.angular')
 
 @section('breadcrumb')
   @include('laravelcms::admin.breadcrumbs',[
-  'prev_link_href'=>'pages',
-  'prev_link_title'=>'Pages',
-  'current_page'   => null
+  'prev_link_href'=>'widgets',
+  'prev_link_title'=>'Widgets',
+  'current_page'   => 'List'
   ])
 @endsection
 
 @section('content')
 
-  @if(session()->has('success'))
-  <p class="alert alert-success">{{ session()->get('success') }}</p>
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
   @endif
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Layout</th>
-        <th>Updated At</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-        @forelse($pages as $page)
-          <tr>
-            <td>{{ $page->title }}</td>
-            <td>{{ $page->description }}</td>
-            <td>{{ $page->layout->name }}</td>
-            <td>{{ getFormatedDate($page->updated_at) }}</td>
-            <td>
-              <a href="{{ route('page.switchvisibility',['page'=>$page->id]) }}">
-                <button type="button" class="btn btn-primary" name="button">
-                  @if($page->active)
-                  <span class="glyphicon glyphicon-eye-open"></span>
-                  @else
-                  <span class="glyphicon glyphicon-eye-close"></span>
-                  @endif
-                </button>
-              </a>
-              <a href="{{ route('page.edit',[ 'id' => $page->id ]) }}">
-                <button type="button" class="btn btn-primary" name="button">
-                  <span class="glyphicon glyphicon-edit"></span>
-                </button>
-              </a>
-              {!! Form::open(['method' => 'DELETE','route' => ['page.destroy', $page->id],'style'=>'display:inline']) !!}
-              {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-              {!! Form::close() !!}
-            </td>
-          </tr>
-        @empty
-          <tr>
-            <td rowspan="5">No Data Found.</td>
-          </tr>
-        @endforelse
-    </tbody>
-  </table>
+  <div ng-app="page">
 
-  {{ $pages->render() }}
+      <toaster-container>
+      </toaster-container>
+
+      <div ui-view="main">
+
+
+      </div>
+
+  <div>
+@endsection
+
+@section('scripts')
+  <script src="<?= url('/') ?>/js/modules/admin/pages/app.js" type="text/javascript"></script>
+  <script src="<?= url('/') ?>/js/modules/admin/pages/controllers.js" type="text/javascript"></script>
+  <script src="<?= url('/') ?>/js/modules/admin/pages/directive.js" type="text/javascript"></script>
+  <script src="<?= url('/') ?>/js/modules/admin/pages/service.js" type="text/javascript"></script>
+  <script src="<?= url('/') ?>/js/modules/admin/pages/factory.js" type="text/javascript"></script>
+  <script src="<?= url('/') ?>/js/modules/admin/widgets/factory.js" type="text/javascript"></script>
+  <script src="<?= url('/') ?>/js/modules/admin/pages/filter.js" type="text/javascript"></script>
 @endsection

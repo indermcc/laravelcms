@@ -27,6 +27,8 @@ class CreateWidgetAttributes extends Migration
 
         $table->unsignedInteger('widget_id');
 
+        $table->boolean('required')->default(false);
+
         $table->foreign('widget_id')->references('id')->on('widgets')->onDelete('cascade');
 
         $table->timestamps();

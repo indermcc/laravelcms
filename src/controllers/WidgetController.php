@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Mcc\Laravelcms\Models\Widget;
 use Mcc\Laravelcms\Models\WidgetAttribute;
+use Mcc\Laravelcms\Models\WidgetCategory;
 use Mcc\Laravelcms\Requests\WidgetRequest;
 use Validator;
 
@@ -130,4 +131,22 @@ class WidgetController extends Controller
     }
     return response()->json($response);
   }
+
+  public function attributes(Widget $widget) {
+    $response = [
+      'status'     => true,
+      'attributes' => $widget->attributes->toArray()
+    ];
+    return response()->json($response);
+  }
+
+  public function listCategories() {
+    $response = [
+      'status'     => true,
+      'categories' => WidgetCategory::all()->toArray(),
+    ];
+
+    return response()->json($response);
+  }
+
 }

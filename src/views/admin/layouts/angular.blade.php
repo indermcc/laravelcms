@@ -22,6 +22,9 @@
 
         <link href="<?= url('/') ?>/css/angular/ladda-themeless.min.css" rel="stylesheet" type="text/css"/>
         <link href="<?= url('/') ?>/css/angular/toaster.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= url('/') ?>/css/angular/ngDialog.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= url('/') ?>/css/angular/ngDialog-theme-default.min.css" rel="stylesheet" type="text/css"/>
+        @yield('css')
 
         <base href="<?= url('/') ?>">
     </head>
@@ -64,13 +67,17 @@
 
         @include('laravelcms::admin.layouts.footer')
         <script type="text/javascript">
-          var APP_URL = {!! json_encode(url('/')) !!};
-          function createUrl(url) {
-            return APP_URL+url;
-          }
+        var APP_URL = {!! json_encode(url('/')) !!},
+              ANGULAR_START_TAG = '<%',
+                ANGULAR_END_TAG = '%>'
+        ;
+        function createUrl(url) {
+          return APP_URL+url;
+        }
         </script>
         <script src="<?= url('/') ?>/js/jquery-3.1.1.min.js" type="text/javascript"></script>
         <script src="<?= url('/') ?>/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?= url('/') ?>/js/tinymce/tinymce.min.js" type="text/javascript"></script>
 
         <script src="<?= url('/') ?>/js/angular/angular.min.js" type="text/javascript"></script>
         <script src="<?= url('/') ?>/js/angular/angular-resource.min.js" type="text/javascript"></script>
@@ -86,7 +93,11 @@
 
         <script src="<?= url('/') ?>/js/ace.js" type="text/javascript"></script>
         <script src="<?= url('/') ?>/js/angular/ui-ace.js" type="text/javascript"></script>
-        <script src="<?= url('/') ?>/js/require.js" type="text/javascript"></script>
+        <!-- <script src="<?= url('/') ?>/js/require.js" type="text/javascript"></script> -->
+
+        <script src="<?= url('/') ?>/js/angular/tinymce.js" type="text/javascript"></script>
+
+        <script src="<?= url('/') ?>/js/angular/ngDialog.min.js" type="text/javascript"></script>
 
          @yield('scripts')
     </body>

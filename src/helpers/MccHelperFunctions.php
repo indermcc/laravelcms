@@ -20,4 +20,8 @@ function ce($var,$exit=true) {
     exit;
 }
 
+function aI($arr,$index,$default=null) {
+  return isset($arr[$index]) ? $arr[$index] : $default;
+}
+
 ?>

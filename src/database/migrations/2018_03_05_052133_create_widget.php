@@ -26,6 +26,8 @@ class CreateWidget extends Migration
 
         $table->text('description')->nullable();
 
+        $table->text('design_options')->nullable();
+
         $table->boolean('active')->default(true);
 
         $table->timestamps();
