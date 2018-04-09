@@ -7,7 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class RowPage extends Model
 {
     //
-    public function cols() {
-      return $this->hasMany(RowWidget::class);
+    public function locations() {
+      return $this->hasMany(RowLocation::class)->orderBy('order');
     }
+
+    public function layout() {
+      return $this->belongsTo(RowLayout::class,'row_id','id');
+    }
+
 }

@@ -22,7 +22,7 @@ class CreateWidget extends Migration
 
         // $table->string('key')->unique();
 
-        $table->string('layout');
+        $table->text('layout');
 
         $table->text('description')->nullable();
 

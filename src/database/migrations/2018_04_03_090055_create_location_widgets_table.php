@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRowWidgetAttributesTable extends Migration
+class CreateLocationWidgetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,30 +13,32 @@ class CreateRowWidgetAttributesTable extends Migration
      */
     public function up()
     {
-        Schema::create('row_widget_attributes', function (Blueprint $table) {
+        Schema::create('location_widgets', function (Blueprint $table) {
+
             $table->increments('id');
 
-            $table->unsignedInteger('row_widget_id');
+            $table->unsignedInteger('row_location_id');
 
-            $table->unsignedInteger('attribute_id');
+            $table->unsignedInteger('widget_id');
 
-            $table->string('value_string')->nullable();
+            $table->tinyInteger('order')->default(0);
 
-            $table->string('value_text')->nullable();
+            $table->text('design_options')->nullable();
 
-            $table->foreign('attribute_id')
+            $table->foreign('row_location_id')
             ->references('id')
-            ->on('widget_attributes')
+            ->on('row_locations')
             ->onDelete('cascade')
             ;
 
-            $table->foreign('row_widget_id')
+            $table->foreign('widget_id')
             ->references('id')
-            ->on('row_widgets')
+            ->on('widgets')
             ->onDelete('cascade')
             ;
 
             $table->timestamps();
+
         });
     }
 
@@ -47,6 +49,6 @@ class CreateRowWidgetAttributesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('row_widget_attributes');
+        Schema::dropIfExists('location_widgets');
     }
 }

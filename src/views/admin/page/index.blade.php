@@ -34,11 +34,12 @@
 @endsection
 
 @section('scripts')
-  <script src="<?= url('/') ?>/js/modules/admin/pages/app.js" type="text/javascript"></script>
-  <script src="<?= url('/') ?>/js/modules/admin/pages/controllers.js" type="text/javascript"></script>
-  <script src="<?= url('/') ?>/js/modules/admin/pages/directive.js" type="text/javascript"></script>
-  <script src="<?= url('/') ?>/js/modules/admin/pages/service.js" type="text/javascript"></script>
-  <script src="<?= url('/') ?>/js/modules/admin/pages/factory.js" type="text/javascript"></script>
-  <script src="<?= url('/') ?>/js/modules/admin/widgets/factory.js" type="text/javascript"></script>
-  <script src="<?= url('/') ?>/js/modules/admin/pages/filter.js" type="text/javascript"></script>
+<script src="<?= url('/') ?>/js/angular/angular-drag-and-drop-lists.min.js" type="text/javascript"></script>
+<script src="<?= url('/') ?>/js/modules/admin/pages/app.js" type="text/javascript"></script>
+<script src="<?= url('/') ?>/js/modules/admin/pages/controllers.js" type="text/javascript"></script>
+<script src="<?= url('/') ?>/js/modules/admin/pages/directive.js" type="text/javascript"></script>
+<script src="<?= url('/') ?>/js/modules/admin/pages/service.js" type="text/javascript"></script>
+<script src="<?= url('/') ?>/js/modules/admin/pages/factory.js" type="text/javascript"></script>
+<script src="<?= url('/') ?>/js/modules/admin/widgets/factory.js" type="text/javascript"></script>
+<script src="<?= url('/') ?>/js/modules/admin/pages/filter.js" type="text/javascript"></script>
 @endsection

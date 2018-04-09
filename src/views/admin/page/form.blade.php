@@ -3,13 +3,13 @@
 <div class="col-lg-10">
 
   <ul class="nav nav-tabs">
-    <li><a data-toggle="tab" href="#home">Basic Detail</a></li>
+    <li class="active"><a data-toggle="tab" href="#home">Basic Detail</a></li>
     <li><a data-toggle="tab" href="#menu1">Seo Detail</a></li>
-    <li class="active"><a data-toggle="tab" href="#composer">Composer</a></li>
+    <li><a data-toggle="tab" href="#composer">Composer</a></li>
   </ul>
 
   <div class="tab-content">
-    <div id="home" class="tab-pane fade">
+    <div id="home" class="tab-pane fade in active">
       <br/>
         <div class="form-group">
           {{ Form::label('title',null,['class'=>'control-label'])}}
@@ -94,7 +94,7 @@
         </div>
     </div>
 
-    <div id="composer" class="tab-pane fade in active">
+    <div id="composer" class="tab-pane fade">
 
       <div class="">
         <div class="pull-left">

@@ -17,19 +17,20 @@ Route::group(['middleware' => 'web'], function () {
 
   // routes for pages controller
   Route::get('/pages','Mcc\Laravelcms\Controllers\PageController@index')->name('pages');
-  Route::get('/pages/add','Mcc\Laravelcms\Controllers\PageController@add')->name('page.add');
+  Route::get('/pages/add/{page?}','Mcc\Laravelcms\Controllers\PageController@add')->name('page.add');
   // Route::post('/pages/add','Mcc\Laravelcms\Controllers\PageController@store')->name('page.save');
   Route::post('/pages/store','Mcc\Laravelcms\Controllers\PageController@store')->name('page.save');
-  Route::get('/pages/edit/{page}','Mcc\Laravelcms\Controllers\PageController@edit')->name('page.edit');
-  Route::post('/pages/edit/{page}','Mcc\Laravelcms\Controllers\PageController@update')->name('page.update');
+  Route::get('/pages/store/{page}','Mcc\Laravelcms\Controllers\PageController@getpage');
+  // Route::get('/pages/edit/{page}','Mcc\Laravelcms\Controllers\PageController@edit')->name('page.edit');
+  // Route::post('/pages/edit/{page}','Mcc\Laravelcms\Controllers\PageController@update')->name('page.update');
   Route::delete('/pages/delete/{page}','Mcc\Laravelcms\Controllers\PageController@destroy')->name('page.destroy');
-  Route::get('/pages/visibility/{page}','Mcc\Laravelcms\Controllers\PageController@visibility')->name('page.switchvisibility');
   Route::get('/pages/list','Mcc\Laravelcms\Controllers\PageController@list')->name('page.listing');
   Route::get('/pages/listing/{page}/{perPage}','Mcc\Laravelcms\Controllers\PageController@listing')->name('page.listingdata');
   Route::get('/pages/layouts','Mcc\Laravelcms\Controllers\PageController@layouts')->name('page.layouts');
   Route::get('/pages/form','Mcc\Laravelcms\Controllers\PageController@form')->name('page.form');
   Route::get('/pages/widgettemplate','Mcc\Laravelcms\Controllers\PageController@widgettemplate')->name('page.form');
   Route::get('/pages/widgetsettings','Mcc\Laravelcms\Controllers\PageController@widgetsettings')->name('page.widgetsettings');
+  Route::post('/pages/listing/{page}','Mcc\Laravelcms\Controllers\PageController@visibility')->name('page.switchvisibility');
 
   // routes for block container
   Route::get('/blocks','Mcc\Laravelcms\Controllers\BlockController@index')->name('blocks');
