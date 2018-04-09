@@ -91,19 +91,22 @@ class PageController extends Controller
         // dd($col);
         $widgets      = aI($col,'widgets',[]);
         foreach ($widgets as $widget_order => $widget) {
+          // dd($widget);
           $db_widget_id                     = intval($widget['db_widget_id']);
           $locationWidget                   = $db_widget_id ? LocationWidget::find($db_widget_id) : new LocationWidget();
           $locationWidget->row_location_id  = $rowLocation->id;
           $locationWidget->widget_id        = $widget['widget_id'];
-          $locationWidget->design_options   = $col['design_options'];
+          $locationWidget->design_options   = $widget['design_options'];
           $locationWidget->order            =  $widget_order;
           // dd($locationWidget);
           $locationWidget->save();
           // dd($rowWidget);
           $attributes = aI($widget,'attributes',[]);
           foreach($attributes as $attribute) {
-            // dd($attribute);
-            $widgetValue                      = new WidgetValue();
+            $widgetValue                      = WidgetValue::where(['location_widget_id'=>$locationWidget->id,'attribute_id'=>$attribute['id']])->first();
+            if(!$widgetValue)
+              $widgetValue                    = new WidgetValue();
+            
             $widgetValue->location_widget_id  = $locationWidget->id;
             $widgetValue->attribute_id        = $attribute['id'];
             if($attribute['type'] == 'text')
